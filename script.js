@@ -1,17 +1,17 @@
 console.log("this is a spotify player of Aashiqui 2 album");
 
 const songs = [
-  { title: "Tum Hi Ho", artist: "Arijit Singh", file: "/spotify/spotify player/Aashiqui 2 (2013)/1.mp3" },
-  { title: "Sunn Raha Hai", artist: "Ankit Tiwari", file: "/spotify/spotify player/Aashiqui 2 (2013)/2.mp3" },
-  { title: "Chahun Main Ya Naa", artist: "Arijit Singh, Palak Muchhal", file: "/spotify/spotify player/Aashiqui 2 (2013)/3.mp3" },
-  { title: "Hum Mar Jayenge", artist: "Arijit Singh, Tulsi Kumar", file: "/spotify/spotify player/Aashiqui 2 (2013)/4.mp3" },
-  { title: "Meri Aashiqui", artist: "Arijit Singh, Palak Muchhal", file: "/spotify/spotify player/Aashiqui 2 (2013)/5.mp3" },
-  { title: "Piya Aaye Na", artist: "K.K., Tulsi Kumar", file: "/spotify/spotify player/Aashiqui 2 (2013)/6.mp3" },
-  { title: "Bhula Dena", artist: "Mustafa Zahid", file: "/spotify/spotify player/Aashiqui 2 (2013)/7.mp3" },
-  { title: "Aasan Nahin Yahan", artist: "Arijit Singh", file: "/spotify/spotify player/Aashiqui 2 (2013)/8.mp3" },
-  { title: "Sun Raha Hai-Female", artist: "Shreya Ghoshal", file: "/spotify/spotify player/Aashiqui 2 (2013)/9.mp3" },
-  { title: "Milne Hai Mujhse Aayi", artist: "Arijit Singh", file: "/spotify/spotify player/Aashiqui 2 (2013)/10.mp3" },
-  { title: "Aashiqui-The Love Theme", artist: "Instrumental", file: "/spotify/spotify player/Aashiqui 2 (2013)/11.mp3" },
+  { title: "Tum Hi Ho", artist: "Arijit Singh", file: "./Aashiqui 2 (2013)/1.mp3" },
+  { title: "Sunn Raha Hai", artist: "Ankit Tiwari", file: "./Aashiqui 2 (2013)/2.mp3" },
+  { title: "Chahun Main Ya Naa", artist: "Arijit Singh, Palak Muchhal", file: "./Aashiqui 2 (2013)/3.mp3" },
+  { title: "Hum Mar Jayenge", artist: "Arijit Singh, Tulsi Kumar", file: "./Aashiqui 2 (2013)/4.mp3" },
+  { title: "Meri Aashiqui", artist: "Arijit Singh, Palak Muchhal", file: "./Aashiqui 2 (2013)/5.mp3" },
+  { title: "Piya Aaye Na", artist: "K.K., Tulsi Kumar", file: "./Aashiqui 2 (2013)/6.mp3" },
+  { title: "Bhula Dena", artist: "Mustafa Zahid", file: "./Aashiqui 2 (2013)/7.mp3" },
+  { title: "Aasan Nahin Yahan", artist: "Arijit Singh", file: "./Aashiqui 2 (2013)/8.mp3" },
+  { title: "Sun Raha Hai-Female", artist: "Shreya Ghoshal", file: "./Aashiqui 2 (2013)/9.mp3" },
+  { title: "Milne Hai Mujhse Aayi", artist: "Arijit Singh", file: "./Aashiqui 2 (2013)/10.mp3" },
+  { title: "Aashiqui-The Love Theme", artist: "Instrumental", file: "./Aashiqui 2 (2013)/11.mp3" },
 ];
 
 let individualRows = document.querySelectorAll(".individual_rows");
@@ -76,7 +76,7 @@ function playSong(index) {
   });
 
   // Update the bottom play button icon to pause
-  bottom_playbutton.innerHTML = `<img class="bottom-pausebutton" src="/spotify/images/pause.png">`;
+  bottom_playbutton.innerHTML = `<img class="bottom-pausebutton" src="./images/pause.png">`;
 
   // Optional: Update song cover or other UI elements
   songCover.style.opacity = "1";
@@ -108,7 +108,7 @@ individualRows.forEach((eachRow, index) => {
   let artistname = eachRow.querySelector(".artist-name").textContent;
 
   eachRow.addEventListener("mouseover", function () {
-    serialNo.innerHTML = `<img class="listplaypng" id="${index + 1}" src="/spotify/images/listplay.png">`;
+    serialNo.innerHTML = `<img class="listplaypng" id="${index + 1}" src="./images/listplay.png">`;
 
     let playImage = serialNo.querySelector(".listplaypng");
 
@@ -125,7 +125,7 @@ individualRows.forEach((eachRow, index) => {
 
       if (currentlyPlayingAudio.paused || currentlyPlayingAudio.currentTime <= 0) {
         currentlyPlayingAudio.play();
-        bottom_playbutton.innerHTML = `<img class="bottom-pausebutton" src="/spotify/images/pause.png">`;
+        bottom_playbutton.innerHTML = `<img class="bottom-pausebutton" src="./images/pause.png">`;
 
         songnameBottomplayer.textContent = songname;
         artistnameBottomplayer.textContent = artistname;
@@ -139,7 +139,7 @@ individualRows.forEach((eachRow, index) => {
 
       } else {
         currentlyPlayingAudio.pause();
-        bottom_playbutton.innerHTML = `<img class="bottom-playbutton" src="/spotify/images/play.png">`;
+        bottom_playbutton.innerHTML = `<img class="bottom-playbutton" src="./images/play.png">`;
       }
 
       currentlyPlayingAudio.addEventListener("timeupdate", function () {
@@ -156,10 +156,10 @@ individualRows.forEach((eachRow, index) => {
     if(currentlyPlayingAudio) {
       if(currentlyPlayingAudio.paused) {
         currentlyPlayingAudio.play();
-        bottom_playbutton.innerHTML = `<img class="bottom-pausebutton" src="/spotify/images/pause.png">`;
+        bottom_playbutton.innerHTML = `<img class="bottom-pausebutton" src="./images/pause.png">`;
       } else {
         currentlyPlayingAudio.pause();
-        bottom_playbutton.innerHTML = `<img class="bottom-playbutton" src="/spotify/images/play.png">`;
+        bottom_playbutton.innerHTML = `<img class="bottom-playbutton" src="./images/play.png">`;
       }
     }
   });
